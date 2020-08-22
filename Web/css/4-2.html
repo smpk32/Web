@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-2</title>
+    <style>
+        div, h1{
+            color : orangered;
+        }
+        div h2{
+            color : mediumblue;
+        }
+        div>h1{
+            color : lightslategray;
+        }
+        div+h1{
+            font-style: italic;
+        }
+        div~h2{
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to MyTube</h1>        <!--div, h1 적용-->
+    <div>
+      <h1>New</h1>                    <!--div > h1 적용-->
+      <h2>New movie1</h2>             <!--div h2 적용-->
+      <h2>New movie2</h2>             <!--div h2 적용-->
+      <span>
+        <h1>This Week</h1>            <!--div, h1 적용, div > h1 미적용-->
+      </span>
+    </div>
+    <h1>Best</h1>                     <!--div + h1 적용-->
+    <h2>New movie3</h2>               <!--div ~ h2 적용-->
+    <h2>New movie4</h2>               <!--div ~ h2 적용-->
+</body>
+</html>

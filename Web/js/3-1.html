@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-1</title>
+    
+</head>
+
+<body>
+    
+    
+    
+    <input type="button" value="Button1" onclick="btnClick(event)">
+
+    <input id="b2" type="button" value="Button2">
+    <script>
+        function btnClick(event) {
+            alert(event.target.value + "클릭됨!!");
+        }
+        document.getElementById('b2').onclick = function (event) { alert(event.target.type + "클릭됨!!") }
+    </script>
+</body>
+
+</html>

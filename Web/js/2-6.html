@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-6</title>
+    <script>
+        let student = {
+            'id': 2019101,
+            'name': 'HongGilDong',
+            'scores': [95, 80, 91, 85],
+            'getTotalScore': function () {
+                return this.scores.reduce((prev, curr) => prev + curr);
+            }
+        }
+
+        console.log(student.getTotalScore());
+
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+            this.getInfo = function () {
+                return this.name + " , " + this.price;
+            }
+        }
+
+        // class Product {
+        //     constructor(name, price) {
+        //         this.name = name;
+        //         this.price = price;
+        //     }
+
+        //     getInfo() {
+        //         return this.name + " , " + this.price;
+        //     }
+        // }
+
+        let p1 = new Product("애플 아이폰", 1000000);
+        let p2 = new Product();
+        p2.name = "삼성 갤럭시"
+        p2.price = 1100000;
+
+        console.log(p1.getInfo());
+        console.log(p2.getInfo());
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Button" onclick="alert('버튼 클릭됨!!')"></input>
+</body>
+
+</html>

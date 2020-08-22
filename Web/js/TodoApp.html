@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function addItem() {
+            // ul 요소 가져옴
+            let list = document.getElementById('todolist');
+            // input 요소 가져옴.
+            let todo = document.getElementById('item');
+            // 새로운 li 요소를 생성
+            let listitem = document.createElement('li');
+            // li 요소에 들어갈 닫기 버튼 생성
+            let xbtn = document.createElement('button');
+
+            let cbtn = document.createElement('button');
+
+            listitem.className = 'list-group-item list-group-item-action list-group-item-warning';
+
+            xbtn.className = 'close';
+            xbtn.innerHTML = '<i class="fas fa-times"></i>';
+            
+            cbtn.className = 'close';
+            cbtn.innerHTML = '<i class="fas fa-redo"></i>&nbsp&nbsp';
+            // close 버튼에 이벤트 처리
+            xbtn.onclick = function (e) {
+                // 이벤트가 발생한 li 요소를 구해서 ul 요소에서 제거
+                let pnode = e.target.parentNode;
+                list.removeChild(pnode);
+            }
+
+            cbtn.onclick = function (e){
+                let pnode = e.target.parentNode;
+                cItem = pnode.parentNode;
+                cItem.innerText = todo.value;
+                cItem.appendChild(xbtn);
+                cItem.appendChild(cbtn);
+            }
+            // li 요소 구성
+            listitem.innerText = todo.value;
+            listitem.appendChild(xbtn);
+            listitem.appendChild(cbtn);
+            // ul 요소에 li 요소 추가
+            list.appendChild(listitem);
+
+            // 입력칸 비우기 및 포커스 이동
+            todo.value = '';
+            todo.focus();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container shadow mx-auto mt-5 p-5 w-70">
+        <h2>My To-Do App</h2>
+        <hr>
+        <div class="input-group">
+            <input id="item" class="form-control" type="text" placeholder="Input new todo">
+            <button id="newBtn" type="button" class="btn btn-info" onclick="addItem()"><i
+                    class="fas fa-plus"></i></button>
+        </div>
+        <hr>
+        <ul id="todolist" class="list-group"></ul>
+    </div>
+
+</body>
+
+</html>

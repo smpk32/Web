@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-3</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .bgyellow {
+            background-color: yellow;
+        }
+
+        .bgwhite {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>주소록 예제</h2>
+    <form>
+        이름: <input type="text" name="name"><br> 전화번호: <input type="text" name="tel"><br>
+        <input type=button value="저장" onclick='addAddr()'>
+        <input type=button value="리셋" onclick='resetAddr()'>
+        <input type=button value="배경변경" onclick='changeBg()'>
+    </form>
+    <hr>
+    <h3>주소록 목록</h3>
+    <ul id="addrlist">
+
+    </ul>
+    <script>
+        function addAddr() {
+            const result = document.getElementById('addrlist');
+            const newAddr = document.getElementsByName("name")[0].value + ' , ' + document.getElementsByName('tel')[0].value;
+
+            const item = document.createElement('li');
+            item.setAttribute('name',"name");
+            const txt = document.createTextNode(newAddr);
+
+            item.appendChild(txt);
+            result.appendChild(item);
+        }
+
+        function resetAddr() {
+            const resetAddr = document.getElementsByName('name');
+            resetAddr[resetAddr.length-1].remove();
+        }
+
+        function changeBg() {
+            body = document.querySelector('body');
+            if(body.className=="bgyellow"){
+                body.className = "bgwhite";
+            }else{
+                body.className = "bgyellow";
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
