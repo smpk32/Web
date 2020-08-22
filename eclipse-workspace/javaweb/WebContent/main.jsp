@@ -8,7 +8,6 @@
 </head>
 <body>
 <h2>로그인 성공</h2>
-<h2><%= request.getAttribute("uname") %>님 환영합니다.</h2>
 <h2>${uname}님 환영합니다</h2>
 <hr>
 아이디 : <%=request.getParameter("id") %> <br>

@@ -24,13 +24,22 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
+	
+	<script>
+		function signup(){
+			document.form1.action = "signup.jsp";
+			uname = prompt("이름을 입력하세요");
+			document.form1.uname.value =uname;
+			document.form1.submit();
+		}
+	</script>
 </head>
 <body>
 	<div class="container w-50 mt-5 p-5 bg-warning shadow">
 		<h1 class="fas fa-shield-alt">Bootstrap :: Login</h1>
 		<hr>
 		<div>
-			<form action="login.jsp" method="post">
+			<form name="form1" action="login.jsp" method="post">
 				<div class="form-group">
 					<label>User ID</label> <input name="id" type="text" class="form-control"
 						placeholder="Enter user id or email">
@@ -39,15 +48,12 @@
 					<label>Password</label> <input name="pwd" type="password" class="form-control"
 						placeholder="Enter password">
 				</div>
+				<input type="hidden" name="uname">
 				<button class="btn btn-info">Sign in</button>
-				<button class="btn btn-primary">Sign up</button>
+				<button type="button" onClick="signup()" class="btn btn-success">Sign up</button>
 			</form>
 		</div>
 		<hr>
-		<!--         <div class="alert alert-danger alert-dismissible fade show w-75 mx-auto">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Warning!</strong> User ID or Password incorrect !!
-          </div> -->
 	</div>
 </body>
 </html>
